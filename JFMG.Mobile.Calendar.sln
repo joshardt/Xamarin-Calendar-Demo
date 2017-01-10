@@ -20,12 +20,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JFMG.Mobile.Calendar.Tests.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{3DB527F9-514C-4ADF-ABE1-69AFEC17CEF0}"
 	ProjectSection(SolutionItems) = preProject
-		droid1.png = droid1.png
-		droid2.png = droid2.png
-		droid3.png = droid3.png
-		ios1.png = ios1.png
-		ios2.png = ios2.png
-		ios3.png = ios3.png
+		SolutionItems\droid1.png = SolutionItems\droid1.png
+		SolutionItems\droid2.png = SolutionItems\droid2.png
+		SolutionItems\droid3.png = SolutionItems\droid3.png
+		SolutionItems\ios1.png = SolutionItems\ios1.png
+		SolutionItems\ios2.png = SolutionItems\ios2.png
+		SolutionItems\ios3.png = SolutionItems\ios3.png
 	EndProjectSection
 EndProject
 Global
