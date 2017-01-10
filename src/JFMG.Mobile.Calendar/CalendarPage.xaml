@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:JFMG.Mobile.Calendar"
+    x:Class="JFMG.Mobile.Calendar.CalendarPage">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>
+                0, 20, 0, 0
+            </OnPlatform.iOS>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+
+        <StackLayout Orientation="Vertical">
+            <StackLayout.BindingContext>
+                <local:CalendarViewModel x:Name="ViewModel" />
+            </StackLayout.BindingContext>
+
+            <!-- Calendar -->
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label x:Name="MonthLabel" Text="{Binding CurrentDateTime.Month}" />
+                <Label x:Name="YearLabel" Text="{Binding CurrentDateTime.Year}" />
+            </StackLayout>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="M" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0"
+                       Grid.Column="0" />
+                <Label Text="T" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0"
+                       Grid.Column="1" />
+                <Label Text="W" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0"
+                       Grid.Column="2" />
+                <Label Text="T" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0"
+                       Grid.Column="3" />
+                <Label Text="F" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0"
+                       Grid.Column="4" />
+                <Label Text="S" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0"
+                       Grid.Column="5" TextColor="Red" />
+                <Label Text="S" HorizontalOptions="Center" HorizontalTextAlignment="Center" Grid.Row="0"
+                       Grid.Column="6" TextColor="Red" />
+            </Grid>
+
+            <Grid x:Name="CalendarGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+            </Grid>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End" Margin="10,0">
+                <Button Text="Back" Command="{Binding Back}" />
+                <Button Text="Next" Command="{Binding Next}" />
+            </StackLayout>
+
+            <!-- Range -->
+            <Label Text="Select a range" Margin="10,0" />
+            <StackLayout Orientation="Horizontal" Margin="10,0">
+                <DatePicker x:Name="RangeFrom" Date="{Binding FromTime, Mode=TwoWay}" />
+                <DatePicker x:Name="RangeUntil" Date="{Binding UntilTime, Mode=TwoWay}" />
+                <Button Text="select" Command="{Binding SelectRange}" />
+            </StackLayout>
+
+            <!-- List -->
+            <ListView x:Name="RangeList" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
